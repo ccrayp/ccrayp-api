@@ -1,0 +1,25 @@
+tags:
+  - Posts
+summary: Create new post
+parameters:
+  - in: body
+    name: body
+    required: true
+    schema:
+      type: object
+      properties:
+        label:
+          type: string
+        text:
+          type: string
+        img:
+          type: string
+        date:
+          type: string
+        link:
+          type: string
+responses:
+  201:
+    description: Пост создан
+  500:
+    description: Ошибка добавления записи в базу данных

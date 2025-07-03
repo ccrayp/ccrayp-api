@@ -1,0 +1,43 @@
+tags:
+  - Posts
+summary: Delete post by ID
+parameters:
+  - name: id
+    in: path
+    type: integer
+    required: true
+    description: ID of the post to delete
+responses:
+  200:
+    description: Post deleted successfully
+    schema:
+      type: object
+      properties:
+        status:
+          type: string
+          example: success
+        message:
+          type: string
+          example: Post was deleted successfully
+  404:
+    description: Post not found
+    schema:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        message:
+          type: string
+          example: Post not found
+  500:
+    description: Internal server error
+    schema:
+      type: object
+      properties:
+        status:
+          type: string
+          example: error
+        message:
+          type: string
+          example: Internal server error
