@@ -32,6 +32,10 @@ def init_app():
     @app.errorhandler(404)
     def error():
         return jsonify(message="path wasn't found"), 404
+    
+    @app.route('/api/ping')
+    def ping():
+        return jsonify({"status": "alive", "message": "Server is awake!"}), 200
 
     return app
 
