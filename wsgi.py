@@ -12,7 +12,7 @@ def keep_alive():
             print("✅ Self-ping sent to /api/ping")
         except Exception as e:
             print(f"❌ Self-ping failed: {e}")
-        time.sleep(300)
+        time.sleep(600)
 
 if __name__ != "__main__":
     t = threading.Thread(target=keep_alive)
