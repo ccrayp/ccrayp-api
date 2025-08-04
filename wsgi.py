@@ -8,7 +8,7 @@ application = init_app()
 def keep_alive():
     while True:
         try:
-            requests.get("https://ccrayp.onrender.com/api/ping")
+            requests.get("https://ccrayp.onrender.com/api/post/list")
             print("✅ Self-ping sent to /api/ping")
         except Exception as e:
             print(f"❌ Self-ping failed: {e}")
