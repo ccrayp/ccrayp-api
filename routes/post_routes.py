@@ -18,7 +18,7 @@ def init_post_routes(app):
         if not data:
             return jsonify(message='Error. No data provided'), 400
         
-        required_fields = ['label', 'text', 'img', 'link', 'date']
+        required_fields = ['label', 'text', 'img', 'link', 'date', 'mode']
         missing_fields = [field for field in required_fields if field not in data]
         if missing_fields:
             return jsonify({
@@ -46,7 +46,7 @@ def init_post_routes(app):
         if not data:
             return jsonify(message='Error. No data provided'), 400
         
-        required_fields = ['label', 'text', 'img', 'link', 'date']
+        required_fields = ['label', 'text', 'img', 'link', 'date', 'mode']
         missing_fields = [field for field in required_fields if field not in data]
         if missing_fields:
             return jsonify({

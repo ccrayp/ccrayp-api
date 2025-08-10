@@ -18,7 +18,7 @@ def init_project_routes(app):
         if not data:
             return jsonify(error='No data provided'), 400
         
-        required_fields = ['label', 'text', 'img', 'stack', 'link']
+        required_fields = ['label', 'text', 'img', 'stack', 'link', 'mode']
         missing_fields = [field for field in required_fields if field not in data]
         if missing_fields:
             return jsonify({
@@ -46,7 +46,7 @@ def init_project_routes(app):
         if not data:
             return jsonify(error='No data provided'), 400
         
-        required_fields = ['label', 'text', 'img', 'stack', 'link']
+        required_fields = ['label', 'text', 'img', 'stack', 'link', 'mode']
         missing_fields = [field for field in required_fields if field not in data]
         if missing_fields:
             return jsonify({

@@ -9,7 +9,8 @@ class TechnologyService():
             technology = Technology(
                 label=data['label'],
                 img=data['img'],
-                group=data['group']
+                group=data['group'],
+                mode=data['mode']
             )
 
             db.session.add(technology)
@@ -30,6 +31,7 @@ class TechnologyService():
             technology.label = data['label']
             technology.img = data['img']
             technology.group = data['group']
+            technology.mode = data['mode']
             
             db.session.commit()
 

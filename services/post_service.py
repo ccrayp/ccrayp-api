@@ -11,7 +11,8 @@ class PostService():
                 text=data['text'],
                 img=data['img'],
                 link=data['link'],
-                date=data['date']
+                date=data['date'],
+                mode=data['mode']
             )
 
             db.session.add(post)
@@ -34,6 +35,7 @@ class PostService():
             post.img = data['img']
             post.link = data['link']
             post.date = data['date']
+            post.mode = data['mode']
             
             db.session.commit()
 

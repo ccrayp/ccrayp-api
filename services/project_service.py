@@ -11,7 +11,8 @@ class ProjectService():
                 text=data['text'],
                 img=data['img'],
                 stack=data['stack'],
-                link=data['link']
+                link=data['link'],
+                mode=data['mode']
             )
 
             db.session.add(project)
@@ -34,6 +35,7 @@ class ProjectService():
             project.img = data['img']
             project.stack = data['stack']
             project.link = data['link']
+            project.mode = data['mode']
             
             db.session.commit()
 

@@ -9,3 +9,4 @@ class Project(db.Model):
     img = db.Column(db.Text, nullable=False)
     stack = db.Column(db.Text, nullable=False)
     link = db.Column(db.Text, nullable=False)
+    mode = db.Column(db.Boolean, nullable=False)

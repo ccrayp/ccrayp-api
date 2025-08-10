@@ -7,3 +7,4 @@ class Technology(db.Model):
     label = db.Column(db.Text, nullable=False)
     img = db.Column(db.Text, nullable=False)
     group = db.Column(db.Text, nullable=False)
+    mode = db.Column(db.Boolean, nullable=False)
