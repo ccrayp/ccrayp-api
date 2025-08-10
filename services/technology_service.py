@@ -10,7 +10,7 @@ class TechnologyService():
                 label=data['label'],
                 img=data['img'],
                 group=data['group'],
-                mode=data['mode']
+                mode= True if data['mode'] else False
             )
 
             db.session.add(technology)
@@ -31,7 +31,7 @@ class TechnologyService():
             technology.label = data['label']
             technology.img = data['img']
             technology.group = data['group']
-            technology.mode = data['mode']
+            technology.mode = True if data['mode'] else False
             
             db.session.commit()
 

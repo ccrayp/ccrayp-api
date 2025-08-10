@@ -12,7 +12,7 @@ class PostService():
                 img=data['img'],
                 link=data['link'],
                 date=data['date'],
-                mode=data['mode']
+                mode= True if data['mode'] else False
             )
 
             db.session.add(post)
@@ -35,7 +35,7 @@ class PostService():
             post.img = data['img']
             post.link = data['link']
             post.date = data['date']
-            post.mode = data['mode']
+            post.mode = True if data['mode'] else False
             
             db.session.commit()
 
