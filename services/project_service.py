@@ -12,7 +12,7 @@ class ProjectService():
                 img=data['img'],
                 stack=data['stack'],
                 link=data['link'],
-                mode= True if data['mode'] else False
+                mode= True if data['mode'] == 'true' else False
             )
 
             db.session.add(project)
@@ -35,7 +35,7 @@ class ProjectService():
             project.img = data['img']
             project.stack = data['stack']
             project.link = data['link']
-            project.mode = True if data['mode'] else False
+            project.mode = True if data['mode'] == 'true' else False
             
             db.session.commit()
 
