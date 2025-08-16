@@ -1,6 +1,6 @@
 tags:
   - Auth
-summary: Rederection to API documentation
+summary: Get JWT access token
 parameters:
   - name: username
     in: body  
