@@ -1,0 +1,68 @@
+tags:
+  - Projects
+summary: Create new project
+parameters:
+  - name: Authorization
+    in: header
+    type: string
+    required: true
+    description: JWT acces token
+  - in: body
+    name: body
+    required: true
+    schema:
+      type: object
+      properties:
+        label:
+          type: string
+        text:
+          type: string
+        img:
+          type: string
+        stack:
+          type: string
+        link:
+          type: string
+        mode:
+          type: boolean
+responses:
+  405:
+    description: Fetch method not 'PUT'
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error. Method not allowed
+  400:
+    description: No data provided
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error. No data provided
+  400:
+    description: Missing required fields
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error. Missing required fields <fields>
+  200:
+    description: Record was successfully created
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Record was successfully updated
+  500:
+    description: Internal Error
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal error. <error message>

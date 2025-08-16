@@ -1,12 +1,17 @@
 tags:
-  - Posts
-summary: Create new post
+  - Technologies
+summary: Update technology data by id
 parameters:
   - name: Authorization
     in: header
     type: string
     required: true
     description: JWT acces token
+  - name: id
+    in: path
+    type: integer
+    required: true
+    description: ID of the technology to update
   - in: body
     name: body
     required: true
@@ -15,19 +20,15 @@ parameters:
       properties:
         label:
           type: string
-        text:
-          type: string
         img:
           type: string
-        date:
-          type: string
-        link:
+        group:
           type: string
         mode:
           type: boolean
 responses:
   405:
-    description: Fetch method not 'PUT'
+    description: Fetch method not 'GET'
     schema:
       type: object
       properties:
@@ -42,16 +43,8 @@ responses:
         message:
           type: string
           example: Error. No data provided
-  400:
-    description: Missing required fields
-    schema:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Error. Missing required fields <fields>
   200:
-    description: Record was successfully created
+    description: Record was successfully updated
     schema:
       type: object
       properties:

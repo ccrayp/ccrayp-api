@@ -1,0 +1,31 @@
+tags:
+  - Auth
+summary: Rederection to API documentation
+parameters:
+  - name: username
+    in: body  
+    required: true
+    schema:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+responses:
+  401:
+    description: Invalid credentials
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error. Invalid credentials
+  200:
+    description: Access JWT token
+    schema:
+      type: object
+      properties:
+        access_token:
+          type: string
+          example: <access_token>

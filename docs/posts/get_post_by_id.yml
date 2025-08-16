@@ -1,15 +1,44 @@
 tags:
   - Posts
-summary: Create new post
+summary: Get post by id
 parameters:
   - name: Authorization
     in: header
     type: string
     required: true
     description: JWT acces token
-  - in: body
-    name: body
+  - name: id
+    in: path
+    type: integer
     required: true
+    description: ID of the post to get
+responses:
+  405:
+    description: Fetch method not 'GET'
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error. Method not allowed
+  400:
+    description: Invalid id
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error. Invalid id
+  404:
+    description: Post with such id does not exist
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error. Post with such id does not exist  
+  200:
+    description: Records were successfully found
     schema:
       type: object
       properties:
@@ -25,39 +54,6 @@ parameters:
           type: string
         mode:
           type: boolean
-responses:
-  405:
-    description: Fetch method not 'PUT'
-    schema:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Error. Method not allowed
-  400:
-    description: No data provided
-    schema:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Error. No data provided
-  400:
-    description: Missing required fields
-    schema:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Error. Missing required fields <fields>
-  200:
-    description: Record was successfully created
-    schema:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Record was successfully updated
   500:
     description: Internal Error
     schema:

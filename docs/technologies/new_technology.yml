@@ -1,6 +1,6 @@
 tags:
-  - Posts
-summary: Create new post
+  - Technologies
+summary: Create new technology
 parameters:
   - name: Authorization
     in: header
@@ -15,13 +15,9 @@ parameters:
       properties:
         label:
           type: string
-        text:
-          type: string
         img:
           type: string
-        date:
-          type: string
-        link:
+        group:
           type: string
         mode:
           type: boolean

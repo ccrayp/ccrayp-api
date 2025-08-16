@@ -1,0 +1,21 @@
+tags:
+  - Auth
+summary: JWT access token validation
+parameters:
+  - name: Authorization
+    in: header
+    type: string
+    required: true
+    description: JWT acces token
+responses:
+  200:
+    description: JWT token was validated
+    schema:
+      type: object
+      properties:
+        logged_in_as:
+          type: string
+          example: <logged_in_as>
+        message:
+          type: string
+          example: Protected route

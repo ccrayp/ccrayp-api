@@ -1,15 +1,20 @@
 tags:
-  - Posts
-summary: Delete post by ID
+  - Technologies
+summary: Delete technnology by ID
 parameters:
+  - name: Authorization
+    in: header
+    type: string
+    required: true
+    description: JWT acces token
   - name: id
     in: path
     type: integer
     required: true
-    description: ID of the post to delete
+    description: ID of the technnology to delete
 responses:
   200:
-    description: Post deleted successfully
+    description: Technnology was successfully deleted
     schema:
       type: object
       properties:
@@ -18,9 +23,9 @@ responses:
           example: success
         message:
           type: string
-          example: Post was deleted successfully
+          example: Technnology was deleted successfully
   404:
-    description: Post not found
+    description: Technnology was not found
     schema:
       type: object
       properties:
@@ -29,7 +34,7 @@ responses:
           example: error
         message:
           type: string
-          example: Post not found
+          example: Error. Technnology was not found
   500:
     description: Internal server error
     schema:
@@ -40,4 +45,4 @@ responses:
           example: error
         message:
           type: string
-          example: Internal server error
+          example: Internal error. <error message>

@@ -18,8 +18,8 @@ def init_auth_routes(app):
         return jsonify(access_token=access_token), 200
 
     @app.route('/api/protected', methods=['GET'])
-    @swag_from('../docs/auth/protected.yml')
     @jwt_required()
+    @swag_from('../docs/auth/protected.yml')
     def protected():
         current_user = get_jwt_identity()
         return jsonify(logged_in_as=current_user, message="Protected route"), 200

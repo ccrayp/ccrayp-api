@@ -1,12 +1,17 @@
 tags:
   - Posts
-summary: Create new post
+summary: Update post data by id
 parameters:
   - name: Authorization
     in: header
     type: string
     required: true
     description: JWT acces token
+  - name: id
+    in: path
+    type: integer
+    required: true
+    description: ID of the post to delete
   - in: body
     name: body
     required: true
@@ -27,7 +32,7 @@ parameters:
           type: boolean
 responses:
   405:
-    description: Fetch method not 'PUT'
+    description: Fetch method not 'GET'
     schema:
       type: object
       properties:
@@ -42,16 +47,8 @@ responses:
         message:
           type: string
           example: Error. No data provided
-  400:
-    description: Missing required fields
-    schema:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Error. Missing required fields <fields>
   200:
-    description: Record was successfully created
+    description: Record was successfully updated
     schema:
       type: object
       properties:

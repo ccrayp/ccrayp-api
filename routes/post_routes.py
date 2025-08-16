@@ -8,8 +8,8 @@ from services.post_service import PostService
 def init_post_routes(app):
     
     @app.route('/api/post/new', methods=['POST'])
-    @swag_from('../docs/new_post.yml')
     @jwt_required()
+    @swag_from('../docs/posts/new_post.yml')
     def new_post():
         if not check_method(request.method, 'POST'):
             return jsonify(message='Error. Method not allowed'), 405
@@ -36,8 +36,8 @@ def init_post_routes(app):
 
 
     @app.route('/api/post/update/<int:id>', methods=['PUT'])
-    @swag_from('../docs/post/update_post_by_id.yml')
     @jwt_required()
+    @swag_from('../docs/posts/update_post_by_id.yml')
     def update_post_by_id(id: int):
         if not check_method(request.method, 'PUT'):
             return jsonify(message='Error. Method not allowed'), 405
@@ -63,8 +63,7 @@ def init_post_routes(app):
 
 
     @app.route('/api/post/list', methods=['GET'])
-    @swag_from('../docs/post/get_all_posts.yml')
-    # @jwt_required()
+    @swag_from('../docs/posts/get_all_posts.yml')
     def get_all_posts():
         if not check_method(request.method, 'GET'):
             return jsonify(message='Error. Method not allowed'), 405
@@ -72,7 +71,7 @@ def init_post_routes(app):
         try:
             posts = PostService.get_all_posts()
             if not posts:
-                return jsonify(message='posts were not found'), 404
+                return jsonify(message='Error. Posts were not found'), 404
             
             return jsonify([json(post) for post in posts]), 200
         
@@ -81,8 +80,8 @@ def init_post_routes(app):
 
 
     @app.route('/api/post/<int:id>', methods=['GET'])
-    @swag_from('../docs/post/get_post_by_id.yml')
     @jwt_required()
+    @swag_from('../docs/posts/get_post_by_id.yml')
     def get_post_by_id(id: int):
         if not check_method(request.method, 'GET'):
             return jsonify(message='Error. Method not allowed'), 405
@@ -93,7 +92,7 @@ def init_post_routes(app):
         try:
             post = PostService.get_post_by_id(id)
             if not post:
-                return jsonify(message='Post with such id does not exist'), 404
+                return jsonify(message='Error. Post with such id does not exist'), 404
 
             return jsonify(json(post)), 200
 
@@ -102,8 +101,8 @@ def init_post_routes(app):
 
 
     @app.route('/api/post/delete/<int:id>', methods=['DELETE'])
-    @swag_from('../docs/post/delete_post_by_id.yml')
     @jwt_required()
+    @swag_from('../docs/posts/delete_post_by_id.yml')
     def delete_post_by_id(id: int):
         if not check_method(request.method, 'DELETE'):
             return jsonify(message='Error. Method not allowed'), 405
@@ -120,8 +119,3 @@ def init_post_routes(app):
 
         except Exception as e:
             return jsonify(message=f'Internal error. {str(e)}'), 500
-
-    
-    # @app.route('/api/posts/delete/all', methods=['DELETE'])
-    # @swag_from('../docs/post/delete_all_posts.yml')
-    # def delete_all_posts():

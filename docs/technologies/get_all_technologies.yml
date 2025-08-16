@@ -1,6 +1,6 @@
 tags:
-  - Projects
-summary: Get array of all projects
+  - Technologies
+summary: Get array of all technologies
 responses:
   405:
     description: Fetch method not 'GET'
@@ -11,13 +11,13 @@ responses:
           type: string
           example: Error. Method not allowed
   404:
-    description: Projects were not found
+    description: Technologies were not found
     schema:
       type: object
       properties:
         message:
           type: string
-          example: Error. Projects were not found
+          example: Error. Technologies were not found
   200:
     description: Records were successfully found
     schema:
@@ -27,13 +27,9 @@ responses:
         properties:
           label:
             type: string
-          text:
-            type: string
           img:
             type: string
-          stack:
-            type: string
-          link:
+          group:
             type: string
           mode:
             type: boolean

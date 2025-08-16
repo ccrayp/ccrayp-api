@@ -1,6 +1,6 @@
 tags:
-  - Projects
-summary: Delete project by ID
+  - Posts
+summary: Delete post by ID
 parameters:
   - name: Authorization
     in: header
@@ -11,10 +11,10 @@ parameters:
     in: path
     type: integer
     required: true
-    description: ID of the project to delete
+    description: ID of the post to delete
 responses:
   200:
-    description: Project was successfully deleted
+    description: Post was successfully deleted
     schema:
       type: object
       properties:
@@ -23,9 +23,9 @@ responses:
           example: success
         message:
           type: string
-          example: Project was successfully deleted
+          example: Post was deleted successfully
   404:
-    description: Project was not found
+    description: Post was not found
     schema:
       type: object
       properties:
@@ -34,7 +34,7 @@ responses:
           example: error
         message:
           type: string
-          example: Error. Project was not found
+          example: Error. Post was not found
   500:
     description: Internal server error
     schema:

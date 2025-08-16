@@ -8,8 +8,8 @@ from services.technology_service import TechnologyService
 def init_technology_routes(app):
     
     @app.route('/api/technology/new', methods=['POST'])
-    @swag_from('../docs/new_technology.yml')
     @jwt_required()
+    @swag_from('../docs/technologies/new_technology.yml')
     def new_technology():
         if not check_method(request.method, 'POST'):
             return jsonify(message='Error. Method not allowed'), 405
@@ -36,8 +36,8 @@ def init_technology_routes(app):
 
 
     @app.route('/api/technology/update/<int:id>', methods=['PUT'])
-    @swag_from('../docs/technology/update_technology_by_id.yml')
     @jwt_required()
+    @swag_from('../docs/technologies/update_technology_by_id.yml')
     def update_technology_by_id(id: int):
         if not check_method(request.method, 'PUT'):
             return jsonify(error='Method not allowed'), 405
@@ -63,8 +63,7 @@ def init_technology_routes(app):
 
 
     @app.route('/api/technology/list', methods=['GET'])
-    @swag_from('../docs/technology/get_all_technologies.yml')
-    # @jwt_required()
+    @swag_from('../docs/technologies/get_all_technologies.yml')
     def get_all_technologys():
         if not check_method(request.method, 'GET'):
             return jsonify(message='Error. Method not allowed'), 405
@@ -81,8 +80,8 @@ def init_technology_routes(app):
 
 
     @app.route('/api/technology/<int:id>', methods=['GET'])
-    @swag_from('../docs/technology/get_technology_by_id.yml')
     @jwt_required()
+    @swag_from('../docs/technologies/get_technology_by_id.yml')
     def get_technology_by_id(id: int):
         if not check_method(request.method, 'GET'):
             return jsonify(message='Error. Method not allowed'), 405
@@ -103,8 +102,8 @@ def init_technology_routes(app):
 
 
     @app.route('/api/technology/list/<string:group>', methods=['GET'])
-    @swag_from('../docs/technology/get_technologies_by_group.yml')
     @jwt_required()
+    @swag_from('../docs/technologies/get_technologies_by_group.yml')
     def get_technologies_by_group(group: str):
         if not check_method(request.method, 'GET'):
             return jsonify(message='Error. Method not allowed'), 405
@@ -125,8 +124,8 @@ def init_technology_routes(app):
 
 
     @app.route('/api/technology/delete/<int:id>', methods=['DELETE'])
-    @swag_from('../docs/technology/delete_technology_by_id.yml')
     @jwt_required()
+    @swag_from('../docs/technologies/delete_technology_by_id.yml')
     def delete_technology_by_id(id: int):
         if not check_method(request.method, 'DELETE'):
             return jsonify(message='Error. Method not allowed'), 405
@@ -143,8 +142,3 @@ def init_technology_routes(app):
 
         except Exception as e:
             return jsonify(message=f'Internal error. {str(e)}'), 500
-
-    
-    # @app.route('/api/technologys/delete/all', methods=['DELETE'])
-    # @swag_from('../docs/technology/delete_all_technologys.yml')
-    # def delete_all_technologys():

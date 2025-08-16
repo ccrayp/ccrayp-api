@@ -1,0 +1,65 @@
+tags:
+  - Projects
+summary: Update project data by id
+parameters:
+  - name: Authorization
+    in: header
+    type: string
+    required: true
+    description: JWT acces token
+  - name: id
+    in: path
+    type: integer
+    required: true
+    description: ID of the post to delete
+  - in: body
+    name: body
+    required: true
+    schema:
+      type: object
+      properties:
+        label:
+          type: string
+        text:
+          type: string
+        img:
+          type: string
+        stack:
+          type: string
+        link:
+          type: string
+        mode:
+          type: boolean
+responses:
+  405:
+    description: Fetch method not 'GET'
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error. Method not allowed
+  400:
+    description: No data provided
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Error. No data provided
+  200:
+    description: Record was successfully updated
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Record was successfully updated
+  500:
+    description: Internal Error
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Internal error. <error message>

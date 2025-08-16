@@ -1,6 +1,6 @@
 tags:
-  - Projects
-summary: Get array of all projects
+  - Posts
+summary: Get array of all posts
 responses:
   405:
     description: Fetch method not 'GET'
@@ -11,13 +11,13 @@ responses:
           type: string
           example: Error. Method not allowed
   404:
-    description: Projects were not found
+    description: Posts were not found
     schema:
       type: object
       properties:
         message:
           type: string
-          example: Error. Projects were not found
+          example: Error. Posts were not found
   200:
     description: Records were successfully found
     schema:
@@ -31,7 +31,7 @@ responses:
             type: string
           img:
             type: string
-          stack:
+          date:
             type: string
           link:
             type: string

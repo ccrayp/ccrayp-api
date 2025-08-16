@@ -1,17 +1,17 @@
 tags:
-  - Projects
-summary: Get project by id
+  - Technologies
+summary: Get technologies by group
 parameters:
   - name: Authorization
     in: header
     type: string
     required: true
     description: JWT acces token
-  - name: id
+  - name: group
     in: path
-    type: integer
+    type: string
     required: true
-    description: ID of the post to get
+    description: Group of the technologies to get
 responses:
   405:
     description: Fetch method not 'GET'
@@ -22,38 +22,36 @@ responses:
           type: string
           example: Error. Method not allowed
   400:
-    description: Invalid id
+    description: Invalid group
     schema:
       type: object
       properties:
         message:
           type: string
-          example: Error. Invalid id
+          example: Error. Invalid group
   404:
-    description: Project with such id does not exist
+    description: Technologies with such group does not exist
     schema:
       type: object
       properties:
         message:
           type: string
-          example: Error. Projects with such id does not exist  
+          example: Error. Technologies with such group does not exist
   200:
     description: Records were successfully found
     schema:
-      type: object
-      properties:
-        label:
-          type: string
-        text:
-          type: string
-        img:
-          type: string
-        stack:
-          type: string
-        link:
-          type: string
-        mode:
-          type: boolean
+      type: array
+      items:
+        type: object
+        properties:
+          label:
+            type: string
+          img:
+            type: string
+          group:
+            type: string
+          mode:
+            type: boolean
   500:
     description: Internal Error
     schema:
