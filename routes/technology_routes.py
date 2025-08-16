@@ -69,11 +69,11 @@ def init_technology_routes(app):
             return jsonify(message='Error. Method not allowed'), 405
         
         try:
-            technologys = TechnologyService.get_all_technologys()
-            if not technologys:
+            technologies = TechnologyService.get_all_technologys()
+            if not technologies:
                 return jsonify(message='Technologies were not found'), 404
             
-            return jsonify([json(technology) for technology in technologys]), 200
+            return jsonify([json(technology) for technology in technologies]), 200
         
         except Exception as e:
             return jsonify(message=f'Internal error. {str(e)}'), 500
@@ -112,12 +112,12 @@ def init_technology_routes(app):
             return jsonify(message=f'Error. Invalid group {group}', id=id), 400
 
         try:
-            technology = TechnologyService.get_technologies_by_group(group)
+            technologies = TechnologyService.get_technologies_by_group(group)
             
-            if not technology:
+            if not technologies:
                 return jsonify(message='Technologies with such group does not exist'), 404
 
-            return jsonify([json(technology) for technology in technologys]), 200
+            return jsonify([json(technology) for technology in technologies]), 200
 
         except Exception as e:
             return jsonify(message=f'Internal error. {str(e)}'), 500
