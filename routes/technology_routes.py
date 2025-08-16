@@ -108,8 +108,8 @@ def init_technology_routes(app):
         if not check_method(request.method, 'GET'):
             return jsonify(message='Error. Method not allowed'), 405
         
-        if id < 0:
-            return jsonify(message='Error. Invalid id', id=id), 400
+        if group not in ('fund', 'ide_os', 'lang_tech'):
+            return jsonify(message=f'Error. Invalid group {group}', id=id), 400
 
         try:
             technology = TechnologyService.get_technologies_by_group(group)
