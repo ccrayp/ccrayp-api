@@ -117,7 +117,7 @@ def init_technology_routes(app):
             if not technology:
                 return jsonify(message='Technologies with such group does not exist'), 404
 
-            return jsonify(json(technology)), 200
+            return jsonify([json(technology) for technology in technologys]), 200
 
         except Exception as e:
             return jsonify(message=f'Internal error. {str(e)}'), 500
