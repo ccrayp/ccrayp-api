@@ -11,7 +11,7 @@ def keep_alive():
             requests.get("https://ccrayp.onrender.com/api/post/list")
         except Exception as e:
             print("База данных уснула")
-        time.sleep(299)
+        time.sleep(600)
 
 if __name__ != "__main__":
     t = threading.Thread(target=keep_alive)
